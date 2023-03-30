@@ -1,10 +1,23 @@
-import { AppHeader, AppContainer } from './Header.styled'
+import {
+  AppHeader,
+  AppContainer,
+  LogoContainer,
+  LogoText,
+} from './Header.styled'
 
 function Header() {
   return (
     <AppHeader>
       <AppContainer>
-        <div>Header</div>
+        <LogoContainer>
+          <img
+            width='40px'
+            height='40px'
+            src={require('../../images/Logo.png')}
+            alt='logo'
+          />
+          <LogoText>WishList</LogoText>
+        </LogoContainer>
       </AppContainer>
     </AppHeader>
   )

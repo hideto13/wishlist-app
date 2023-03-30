@@ -4,7 +4,7 @@ export const MainContainer = styled.div`
   max-width: 1600px;
   width: 100%;
   box-sizing: border-box;
-  padding: 100px 24px;
+  padding: 100px 50px 150px;
   margin: 0 auto;
   display: flex;
   justify-content: center;
@@ -16,9 +16,52 @@ export const MainTitle = styled.h1`
   text-transform: uppercase;
   font-size: 48px;
   margin: 80px 0 40px;
+  text-align: center;
+  @media (max-width: 1023px) {
+    margin: 70px 0 30px;
+  }
+  @media (max-width: 767px) {
+    margin: 40px 0 10px;
+    font-size: 36px;
+  }
 `
 
 export const MainText = styled.p`
-  max-width: 700px;
+  max-width: 500px;
   line-height: 38px;
+  margin-bottom: 20px;
+  @media (max-width: 767px) {
+    margin-bottom: 10px;
+  }
+`
+
+export const MainImg = styled.img`
+  width: 400px;
+  height: 100%;
+
+  border-radius: 5px;
+  @media (max-width: 1023px) {
+    width: 350px;
+  }
+
+  @media (max-width: 767px) {
+    display: none;
+  }
+`
+
+export const MainTextContainer = styled.div`
+  display: flex;
+  gap: 24px;
+  margin-top: 50px;
+  margin-bottom: 110px;
+  @media (max-width: 1023px) {
+    margin-bottom: 70px;
+  }
+  @media (max-width: 767px) {
+    margin-bottom: 50px;
+    margin-top: 10px;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
 `

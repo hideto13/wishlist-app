@@ -20,4 +20,8 @@ export const AppFooter = styled.div`
 export const AppContainer = styled.div`
   max-width: 1600px;
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
 `
