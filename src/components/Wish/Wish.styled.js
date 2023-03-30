@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 export const WishContainer = styled.div`
-  font-family: 'Inter', Arial, sans-serif;
   max-width: 282px;
   background-color: #4f273a;
   border-radius: 10px;

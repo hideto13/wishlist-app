@@ -1,10 +1,11 @@
 import Button from '../../components/Button'
 import Title from '../../components/Title'
 import Wish from '../../components/Wish'
-import { WishesContainer, WishesList } from './Wishes.styled'
+import PageContainer from '../../components/PageContainer'
+import { WishesList } from './Wishes.styled'
 function Wishes() {
   return (
-    <WishesContainer>
+    <PageContainer>
       <Title name={'All my wishes...'} />
       <WishesList>
         {Array.from(Array(8)).map((_, id) => (
@@ -12,7 +13,7 @@ function Wishes() {
         ))}
       </WishesList>
       <Button name={'add one'} />
-    </WishesContainer>
+    </PageContainer>
   )
 }
 

@@ -1,14 +1,10 @@
 import Button from '../../components/Button'
 import Title from '../../components/Title'
-import {
-  MainContainer,
-  MainText,
-  MainImg,
-  MainTextContainer,
-} from './Main.styled'
+import PageContainer from '../../components/PageContainer'
+import { MainText, MainImg, MainTextContainer } from './Main.styled'
 function Main() {
   return (
-    <MainContainer>
+    <PageContainer>
       <Title name={'welcome to the wishlist app!'} />
       <MainTextContainer>
         <MainText>
@@ -20,7 +16,7 @@ function Main() {
         <MainImg src={require('../../images/wish.jpg')} />
       </MainTextContainer>
       <Button name={'start now!'} />
-    </MainContainer>
+    </PageContainer>
   )
 }
 
