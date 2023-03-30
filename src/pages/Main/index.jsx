@@ -1,7 +1,7 @@
 import Button from '../../components/Button'
+import Title from '../../components/Title'
 import {
   MainContainer,
-  MainTitle,
   MainText,
   MainImg,
   MainTextContainer,
@@ -9,7 +9,7 @@ import {
 function Main() {
   return (
     <MainContainer>
-      <MainTitle>welcome to the wishlist app!</MainTitle>
+      <Title name={'welcome to the wishlist app!'} />
       <MainTextContainer>
         <MainText>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem
@@ -19,7 +19,7 @@ function Main() {
         </MainText>{' '}
         <MainImg src={require('../../images/wish.jpg')} />
       </MainTextContainer>
-      <Button />
+      <Button name={'start now!'} />
     </MainContainer>
   )
 }

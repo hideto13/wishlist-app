@@ -1,7 +1,7 @@
 import { AppButton } from './Button.styled'
 
-function Button() {
-  return <AppButton>Start now!</AppButton>
+function Button({ name }) {
+  return <AppButton>{name}</AppButton>
 }
 
 export default Button
