@@ -21,6 +21,9 @@ export const AppHeader = styled.div`
 export const AppContainer = styled.div`
   max-width: 1600px;
   width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `
 
 export const LogoContainer = styled(Link)`
@@ -37,4 +40,8 @@ export const LogoText = styled.p`
   font-weight: 500;
   color: #4f273a;
   text-decoration: none;
+`
+export const StyledLink = styled(Link)`
+  color: #4f273a;
+  font-size: 20px;
 `

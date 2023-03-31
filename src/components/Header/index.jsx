@@ -3,6 +3,7 @@ import {
   AppContainer,
   LogoContainer,
   LogoText,
+  StyledLink,
 } from './Header.styled'
 
 function Header() {
@@ -18,6 +19,7 @@ function Header() {
           />
           <LogoText>WishList</LogoText>
         </LogoContainer>
+        <StyledLink to='/sign-in'>Sign In</StyledLink>
       </AppContainer>
     </AppHeader>
   )

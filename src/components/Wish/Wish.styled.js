@@ -47,6 +47,10 @@ export const WishLinkWrapper = styled.p`
   margin: 8px 0;
   font-size: 16px;
   line-height: 18px;
+  max-width: 150px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 `
 
 export const WishPrice = styled.p`
