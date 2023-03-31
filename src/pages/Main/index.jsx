@@ -11,10 +11,17 @@ function Main() {
       <Title name={'welcome to the wishlist app!'} />
       <MainTextContainer>
         <MainText>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem
-          suscipit totam, sit labore pariatur laborum corrupti cumque quo
-          repellendus illo cupiditate nesciunt explicabo incidunt sapiente omnis
-          nemo eum praesentium deleniti!
+          <span style={{ marginBottom: '20px', display: 'inline-block' }}>
+            Now it's easier to give gifts! Just share your wishlist with your
+            friends and they can't go wrong with a gift and you still get a
+            surprise!
+          </span>
+          <br />
+          <span>
+            You must register to create your own wishlist, but you can also view
+            other people's wishlists without registering - just by getting a
+            link to your friend's wishlist.
+          </span>
         </MainText>{' '}
         <MainImg src={require('../../images/wish.jpg')} />
       </MainTextContainer>

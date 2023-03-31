@@ -10,6 +10,6 @@ export const WishesList = styled.div`
   column-gap: 17px;
   row-gap: 20px;
   min-height: 50px;
-  margin-bottom: 60px;
+  margin: 40px 0 60px;
   justify-content: center;
 `

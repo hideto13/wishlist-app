@@ -1,14 +1,16 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import validator from 'validator'
 import Button from '../../components/Button'
 import Title from '../../components/Title'
 import PageContainer from '../../components/PageContainer'
 import Input from '../../components/Input'
+import { UserContext } from '../../contexts/UserContext'
 import { InputsContainer, LinkContainer, StyledLink } from './SignIn.styled'
 
 function SignIn() {
   const navigate = useNavigate()
+  const { getToken } = useContext(UserContext)
 
   const [password, setPassword] = useState('')
   const [email, setEmail] = useState('')
@@ -25,6 +27,8 @@ function SignIn() {
       setPasswordError('The password should be at least 6 characters')
     }
     if (validator.isEmail(email) && password.length > 5) {
+      localStorage.setItem('Token', 'token')
+      getToken()
       navigate('/wishes')
     }
   }

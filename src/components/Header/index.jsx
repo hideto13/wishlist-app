@@ -1,3 +1,5 @@
+import React, { useContext } from 'react'
+import { UserContext } from '../../contexts/UserContext'
 import {
   AppHeader,
   AppContainer,
@@ -7,6 +9,8 @@ import {
 } from './Header.styled'
 
 function Header() {
+  const { token } = useContext(UserContext)
+
   return (
     <AppHeader>
       <AppContainer>
@@ -19,7 +23,7 @@ function Header() {
           />
           <LogoText>WishList</LogoText>
         </LogoContainer>
-        <StyledLink to='/sign-in'>Sign In</StyledLink>
+        {!token && <StyledLink to='/sign-in'>Sign In</StyledLink>}
       </AppContainer>
     </AppHeader>
   )
