@@ -16,4 +16,8 @@ export const StyledLink = styled(Link)`
 
 export const LinkContainer = styled.p`
   margin: 0 0 90px;
+
+  @media (max-width: 767px) {
+    margin: 0 0 70px;
+  }
 `

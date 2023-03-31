@@ -1,9 +1,10 @@
-import { StyledInput, InputContainer } from './Input.styled'
-function Input({ label }) {
+import { StyledInput, InputContainer, InputError } from './Input.styled'
+function Input({ label, error, value, onChange }) {
   return (
     <InputContainer>
       <label>{label}:</label>
-      <StyledInput />
+      <StyledInput value={value} onChange={e => onChange(e.target.value)} />
+      <InputError>{error}</InputError>
     </InputContainer>
   )
 }

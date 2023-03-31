@@ -15,7 +15,16 @@ export const StyledInput = styled.input`
 `
 
 export const InputContainer = styled.div`
-  margin-bottom: 24px;
+  margin-bottom: 18px;
   width: 100%;
   max-width: 600px;
+`
+
+export const InputError = styled.span`
+  color: red;
+  font-size: 12px;
+  text-transform: lowercase;
+  min-height: 14px;
+  display: block;
+  margin: 5px 0;
 `

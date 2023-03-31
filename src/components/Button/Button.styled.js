@@ -18,4 +18,8 @@ export const AppButton = styled.button`
   &:hover {
     box-shadow: 0px 0px 13px 3px #a2a2d0;
   }
+
+  @media (max-width: 767px) {
+    padding: 14px 40px;
+  }
 `
