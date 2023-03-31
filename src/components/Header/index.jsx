@@ -9,7 +9,7 @@ function Header() {
   return (
     <AppHeader>
       <AppContainer>
-        <LogoContainer>
+        <LogoContainer to='/'>
           <img
             width='40px'
             height='40px'

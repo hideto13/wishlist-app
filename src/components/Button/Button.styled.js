@@ -10,5 +10,12 @@ export const AppButton = styled.button`
   font-size: 24px;
   font-weight: 600;
   cursor: pointer;
-  border: 1px solid #a2a2d0;
+  box-shadow: 0px 0px 5px 1px #a2a2d0;
+
+  -webkit-transition: all 150ms ease-in-out;
+  transition: all 150ms ease-in-out;
+
+  &:hover {
+    box-shadow: 0px 0px 13px 3px #a2a2d0;
+  }
 `

@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 export const AppHeader = styled.div`
   position: fixed;
@@ -22,10 +23,11 @@ export const AppContainer = styled.div`
   width: 100%;
 `
 
-export const LogoContainer = styled.div`
+export const LogoContainer = styled(Link)`
   display: flex;
   gap: 8px;
   align-items: center;
+  text-decoration: none;
 `
 
 export const LogoText = styled.p`
@@ -33,4 +35,6 @@ export const LogoText = styled.p`
   font-size: 24px;
   font-style: italic;
   font-weight: 500;
+  color: #4f273a;
+  text-decoration: none;
 `
