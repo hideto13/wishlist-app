@@ -6,6 +6,7 @@ import Title from '../../components/Title'
 import PageContainer from '../../components/PageContainer'
 import Input from '../../components/Input'
 import { UserContext } from '../../contexts/UserContext'
+import { login } from '../../api'
 import { InputsContainer, LinkContainer, StyledLink } from './SignIn.styled'
 
 function SignIn() {
@@ -27,9 +28,15 @@ function SignIn() {
       setPasswordError('The password should be at least 6 characters')
     }
     if (validator.isEmail(email) && password.length > 5) {
-      localStorage.setItem('Token', 'token')
-      getToken()
-      navigate('/wishes')
+      login(email, password)
+        .then(res => {
+          localStorage.setItem('Token', res.token)
+          getToken()
+          navigate('/wishes')
+        })
+        .catch(e => {
+          console.log(e)
+        })
     }
   }
 

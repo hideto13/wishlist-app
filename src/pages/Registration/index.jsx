@@ -5,6 +5,7 @@ import Button from '../../components/Button'
 import Title from '../../components/Title'
 import PageContainer from '../../components/PageContainer'
 import Input from '../../components/Input'
+import { register } from '../../api'
 import {
   InputsContainer,
   StyledLink,
@@ -29,7 +30,14 @@ function Registration() {
       setPasswordError('The password should be at least 6 characters')
     }
     if (validator.isEmail(email) && password.length > 5) {
-      navigate('/sign-in')
+      register(email, password)
+        .then(res => {
+          navigate('/sign-in')
+        })
+        .catch(e => {
+          console.log(e)
+          setPasswordError('Something went wrong')
+        })
     }
   }
 
