@@ -18,7 +18,7 @@ export const WishImg = styled.img`
 
 export const WishTextContainer = styled.div`
   width: 100%;
-  padding: 16px;
+
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
@@ -31,9 +31,18 @@ export const WishTextWrapper = styled.div`
   gap: 2px;
 `
 
+export const WishWrapper = styled.div`
+  padding: 16px;
+`
+
 export const WishLink = styled.a`
   color: rgb(235, 213, 221);
   text-decoration: none;
+`
+
+export const WishDescription = styled.p`
+  color: rgb(190, 190, 231);
+  font-size: 14px;
 `
 
 export const WishName = styled.h3`
