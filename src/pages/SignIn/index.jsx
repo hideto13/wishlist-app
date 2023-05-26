@@ -11,7 +11,7 @@ import { InputsContainer, LinkContainer, StyledLink } from './SignIn.styled'
 
 function SignIn() {
   const navigate = useNavigate()
-  const { getToken } = useContext(UserContext)
+  const { checkUser } = useContext(UserContext)
 
   const [password, setPassword] = useState('')
   const [email, setEmail] = useState('')
@@ -31,7 +31,7 @@ function SignIn() {
       login(email, password)
         .then(res => {
           localStorage.setItem('Token', res.token)
-          getToken()
+          checkUser()
           navigate('/wishes')
         })
         .catch(e => {

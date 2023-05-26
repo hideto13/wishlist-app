@@ -1,20 +1,30 @@
 import { useState, useEffect } from 'react'
+import { getUser } from '../api'
 
 const useUserInfo = () => {
   const [token, setToken] = useState(null)
 
-  function getToken() {
-    const res = localStorage.getItem('Token')
-    setToken(res)
+  function checkUser() {
+    const token = localStorage.getItem('Token')
+
+    if (!token) return
+    getUser(token)
+      .then(res => {
+        setToken(token)
+      })
+      .catch(e => {
+        console.log(e)
+        localStorage.removeItem('Token')
+      })
   }
 
   useEffect(() => {
-    getToken()
+    checkUser()
   }, [localStorage])
 
   return {
     token,
-    getToken,
+    checkUser,
   }
 }
 
