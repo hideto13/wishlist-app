@@ -3,6 +3,7 @@ import Button from '../../components/Button'
 import Title from '../../components/Title'
 import Wish from '../../components/Wish'
 import PageContainer from '../../components/PageContainer'
+import AddWishModal from '../../components/AddWishModal'
 import { getUserWishes } from '../../api'
 import { UserContext } from '../../contexts/UserContext'
 import { WishesList } from './Wishes.styled'
@@ -10,6 +11,10 @@ import { WishesList } from './Wishes.styled'
 function Wishes() {
   const { token } = useContext(UserContext)
   const [wishes, setWishes] = useState([])
+  const [modalOpen, setModalOpen] = useState(false)
+
+  const handleOpenModal = () => setModalOpen(true)
+  const handleCloseModal = () => setModalOpen(false)
 
   function getWishes() {
     getUserWishes(token)
@@ -31,7 +36,8 @@ function Wishes() {
           <Wish price={'100'} key={wish._id} {...wish} />
         ))}
       </WishesList>
-      <Button name={'add one'} />
+      <Button name={'add one'} onClick={handleOpenModal} />
+      <AddWishModal isOpen={modalOpen} onClose={handleCloseModal} />
     </PageContainer>
   )
 }

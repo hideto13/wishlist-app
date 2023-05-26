@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const AppButton = styled.button`
-  background-color: #bebee7;
+  background-color: ${({ color }) => color || '#bebee7'};
   color: #4f273a;
   padding: 20px 40px;
   border: none;
