@@ -87,3 +87,30 @@ export async function getUserWishes(token) {
       throw new Error(err)
     })
 }
+
+export async function addWish(token, wish) {
+  return await fetch(`${API_HOST}/wishes`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({
+      name: wish.name,
+      description: wish.description,
+      link: wish.link,
+      image: wish.image,
+    }),
+  })
+    .then(response => {
+      if (response.ok) {
+        return response
+      }
+      throw new Error(`Error: ${response.status}`)
+    })
+    .then(response => response.json())
+    .catch(err => {
+      throw new Error(err)
+    })
+}
