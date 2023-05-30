@@ -4,13 +4,14 @@ import useUserInfo from '../hooks/useUserInfo'
 export const UserContext = React.createContext()
 
 const UserProvider = ({ children }) => {
-  const { token, checkUser } = useUserInfo()
+  const { token, checkUser, userId } = useUserInfo()
 
   return (
     <UserContext.Provider
       value={{
         token,
         checkUser,
+        userId,
       }}
     >
       {children}

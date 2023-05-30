@@ -3,6 +3,7 @@ import { getUser } from '../api'
 
 const useUserInfo = () => {
   const [token, setToken] = useState(null)
+  const [userId, setUserId] = useState(null)
 
   function checkUser() {
     const token = localStorage.getItem('Token')
@@ -11,6 +12,7 @@ const useUserInfo = () => {
     getUser(token)
       .then(res => {
         setToken(token)
+        setUserId(res._id)
       })
       .catch(e => {
         console.log(e)
@@ -25,6 +27,7 @@ const useUserInfo = () => {
   return {
     token,
     checkUser,
+    userId,
   }
 }
 
