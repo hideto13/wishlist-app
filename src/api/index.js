@@ -88,6 +88,26 @@ export async function getUserWishes(token) {
     })
 }
 
+export async function getUserWishesById(userId) {
+  return await fetch(`${API_HOST}/wishes/${userId}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+    },
+  })
+    .then(response => {
+      if (response.ok) {
+        return response
+      }
+      throw new Error(`Error: ${response.status}`)
+    })
+    .then(response => response.json())
+    .catch(err => {
+      throw new Error(err)
+    })
+}
+
 export async function addWish(token, wish) {
   return await fetch(`${API_HOST}/wishes`, {
     method: 'POST',
@@ -101,6 +121,7 @@ export async function addWish(token, wish) {
       description: wish.description,
       link: wish.link,
       image: wish.image,
+      price: wish.price,
     }),
   })
     .then(response => {

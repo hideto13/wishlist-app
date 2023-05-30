@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { Routes, Route } from 'react-router-dom'
 import Main from './pages/Main'
+import MyWishes from './pages/MyWishes'
 import Wishes from './pages/Wishes'
 import Registration from './pages/Registration'
 import SignIn from './pages/SignIn'
@@ -30,7 +31,8 @@ function App() {
               </RedirectRoute>
             }
           />
-          <Route path='/wishes/*' element={<Wishes />} />
+          <Route path='/wishes/:userId/*' element={<Wishes />} />
+          <Route path='/wishes/*' element={<MyWishes />} />
           <Route
             exact
             path='/sign-up'
