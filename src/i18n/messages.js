@@ -27,6 +27,8 @@ export const messages = {
     formImage: 'Image link',
     formLink: 'Wish link',
     formButton: 'add',
+    formNameError: 'Name is required',
+    formLinkError: 'Incorrect url',
     //signup
     signupTitle: 'Sign Up',
     signupPassword: 'Password',
@@ -67,6 +69,8 @@ export const messages = {
     formImage: 'Ссылка на изображение',
     formLink: 'Ссылка на товар',
     formButton: 'Добавить',
+    formNameError: "Поле 'Название' обязательно",
+    formLinkError: 'Некорректная ссылка',
     //signup
     signupTitle: 'Зарегистрироваться',
     signupPassword: 'Пароль',

@@ -1,11 +1,12 @@
 import { useState, useContext } from 'react'
 import { FormattedMessage } from 'react-intl'
+import validator from 'validator'
 import ModalComponent from '../Modal'
 import Button from '../Button'
 import { addWish } from '../../api'
 import { UserContext } from '../../contexts/UserContext'
 import { ModalInput, ModalTitle, ModalLabel } from '../Modal/Modal.styled'
-import { ButtonContainer } from './AddWishModal.styled'
+import { ButtonContainer, ErrorText } from './AddWishModal.styled'
 
 export default function AddWishModal({ isOpen, onClose }) {
   const initialNewWish = {
@@ -17,8 +18,12 @@ export default function AddWishModal({ isOpen, onClose }) {
   }
   const { token } = useContext(UserContext)
   const [newWish, setNewWish] = useState(initialNewWish)
+  const [error, setError] = useState('')
 
-  const handleChangeName = e => setNewWish({ ...newWish, name: e.target.value })
+  const handleChangeName = e => {
+    setNewWish({ ...newWish, name: e.target.value })
+    setError('')
+  }
   const handleChangePrice = e =>
     setNewWish({ ...newWish, price: e.target.value })
   const handleChangeDescription = e =>
@@ -28,12 +33,24 @@ export default function AddWishModal({ isOpen, onClose }) {
   const handleChangeLink = e => setNewWish({ ...newWish, link: e.target.value })
 
   function addNewWish() {
-    addWish(token, newWish)
-      .then(res => {
-        onClose()
-        setNewWish(initialNewWish)
-      })
-      .catch(e => console.log(e))
+    if (!newWish.name) {
+      setError(<FormattedMessage id='formNameError' />)
+    } else if (
+      (newWish.image && !validator.isURL(newWish.image)) ||
+      (newWish.link && !validator.isURL(newWish.link))
+    ) {
+      setError(<FormattedMessage id='formLinkError' />)
+    } else {
+      addWish(token, newWish)
+        .then(res => {
+          onClose()
+          setNewWish(initialNewWish)
+        })
+        .catch(e => {
+          console.log(e)
+          setError(<FormattedMessage id='defaultError' />)
+        })
+    }
   }
 
   return (
@@ -48,7 +65,11 @@ export default function AddWishModal({ isOpen, onClose }) {
       <ModalLabel>
         <FormattedMessage id='formPrice' />
       </ModalLabel>
-      <ModalInput value={newWish.price} onChange={handleChangePrice} />
+      <ModalInput
+        value={newWish.price}
+        onChange={handleChangePrice}
+        type='number'
+      />
       <ModalLabel>
         <FormattedMessage id='formDescription' />
       </ModalLabel>
@@ -65,6 +86,7 @@ export default function AddWishModal({ isOpen, onClose }) {
       </ModalLabel>
       <ModalInput value={newWish.link} onChange={handleChangeLink} />
       <ButtonContainer>
+        <ErrorText>{error}</ErrorText>
         <Button
           name={<FormattedMessage id='formButton' />}
           color='rgba(16, 16, 44, 0.2)'

@@ -55,6 +55,10 @@ export const WishName = styled.h3`
   margin: 0;
   font-size: 20px;
   line-height: 24px;
+  max-width: 170px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 `
 
 export const WishLinkWrapper = styled.p`
