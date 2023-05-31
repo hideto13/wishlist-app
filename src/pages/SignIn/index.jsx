@@ -1,5 +1,6 @@
 import { useState, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { FormattedMessage } from 'react-intl'
 import validator from 'validator'
 import Button from '../../components/Button'
 import Title from '../../components/Title'
@@ -22,10 +23,10 @@ function SignIn() {
     e.preventDefault()
 
     if (!validator.isEmail(email)) {
-      setEmailError('Incorrect email address')
+      setEmailError(<FormattedMessage id='incorrectEmailError' />)
     }
     if (password.length < 6) {
-      setPasswordError('The password should be at least 6 characters')
+      setPasswordError(<FormattedMessage id='shortPasswordError' />)
     }
     if (validator.isEmail(email) && password.length > 5) {
       login(email, password)
@@ -36,6 +37,7 @@ function SignIn() {
         })
         .catch(e => {
           console.log(e)
+          setPasswordError(<FormattedMessage id='defaultError' />)
         })
     }
   }
@@ -52,7 +54,7 @@ function SignIn() {
 
   return (
     <PageContainer>
-      <Title name={'sign in'} />
+      <Title name={<FormattedMessage id='signinTitle' />} />
       <InputsContainer>
         <Input
           label={'Email'}
@@ -61,16 +63,19 @@ function SignIn() {
           onChange={onEmailChange}
         />
         <Input
-          label={'Password'}
+          label={<FormattedMessage id='signinPassword' />}
           error={passwordError}
           value={password}
           onChange={onPasswordChange}
         />
       </InputsContainer>
       <LinkContainer>
-        Missing account? <StyledLink to='/sign-up'>Sign Up</StyledLink>
+        <FormattedMessage id='signinText' />{' '}
+        <StyledLink to='/sign-up'>
+          <FormattedMessage id='signupTitle' />
+        </StyledLink>
       </LinkContainer>
-      <Button name={'Sign in'} onClick={onSubmit} />
+      <Button name={<FormattedMessage id='signinTitle' />} onClick={onSubmit} />
     </PageContainer>
   )
 }

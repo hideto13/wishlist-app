@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom'
+import { FormattedMessage } from 'react-intl'
 import Button from '../../components/Button'
 import Title from '../../components/Title'
 import PageContainer from '../../components/PageContainer'
@@ -8,24 +9,23 @@ function Main() {
 
   return (
     <PageContainer>
-      <Title name={'welcome to the wishlist app!'} />
+      <Title name={<FormattedMessage id='mainTitle' />} />
       <MainTextContainer>
         <MainText>
           <span style={{ marginBottom: '20px', display: 'inline-block' }}>
-            Now it's easier to give gifts! Just share your wishlist with your
-            friends and they can't go wrong with a gift and you still get a
-            surprise!
+            <FormattedMessage id='mainText1' />
           </span>
           <br />
           <span>
-            You must register to create your own wishlist, but you can also view
-            other people's wishlists without registering - just by getting a
-            link to your friend's wishlist.
+            <FormattedMessage id='mainText2' />
           </span>
-        </MainText>{' '}
+        </MainText>
         <MainImg src={require('../../images/wish.jpg')} />
       </MainTextContainer>
-      <Button name={'start now!'} onClick={() => navigate('/sign-up')} />
+      <Button
+        name={<FormattedMessage id='mainButton' />}
+        onClick={() => navigate('/sign-up')}
+      />
     </PageContainer>
   )
 }

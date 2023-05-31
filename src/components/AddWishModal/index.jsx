@@ -1,4 +1,5 @@
 import { useState, useContext } from 'react'
+import { FormattedMessage } from 'react-intl'
 import ModalComponent from '../Modal'
 import Button from '../Button'
 import { addWish } from '../../api'
@@ -37,23 +38,35 @@ export default function AddWishModal({ isOpen, onClose }) {
 
   return (
     <ModalComponent isOpen={isOpen} onClose={onClose}>
-      <ModalTitle>Add new wish</ModalTitle>
-      <ModalLabel>Name</ModalLabel>
+      <ModalTitle>
+        <FormattedMessage id='formTitle' />
+      </ModalTitle>
+      <ModalLabel>
+        <FormattedMessage id='formName' />*
+      </ModalLabel>
       <ModalInput value={newWish.name} onChange={handleChangeName} />
-      <ModalLabel>Price</ModalLabel>
+      <ModalLabel>
+        <FormattedMessage id='formPrice' />
+      </ModalLabel>
       <ModalInput value={newWish.price} onChange={handleChangePrice} />
-      <ModalLabel>Description</ModalLabel>
+      <ModalLabel>
+        <FormattedMessage id='formDescription' />
+      </ModalLabel>
       <ModalInput
         value={newWish.description}
         onChange={handleChangeDescription}
       />
-      <ModalLabel>Image link</ModalLabel>
+      <ModalLabel>
+        <FormattedMessage id='formImage' />
+      </ModalLabel>
       <ModalInput value={newWish.image} onChange={handleChangeImage} />
-      <ModalLabel>Wish link</ModalLabel>
+      <ModalLabel>
+        <FormattedMessage id='formLink' />
+      </ModalLabel>
       <ModalInput value={newWish.link} onChange={handleChangeLink} />
       <ButtonContainer>
         <Button
-          name={'Add'}
+          name={<FormattedMessage id='formButton' />}
           color='rgba(16, 16, 44, 0.2)'
           onClick={addNewWish}
         />

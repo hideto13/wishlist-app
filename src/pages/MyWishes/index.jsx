@@ -1,4 +1,5 @@
 import { useState, useEffect, useContext } from 'react'
+import { FormattedMessage } from 'react-intl'
 import Button from '../../components/Button'
 import Title from '../../components/Title'
 import Wish from '../../components/Wish'
@@ -39,14 +40,14 @@ function MyWishes() {
   if (!token)
     return (
       <PageContainer>
-        <Title name={'Please log in'} />
+        <Title name={<FormattedMessage id='myWishesErrorTitle' />} />
       </PageContainer>
     )
 
   return (
     <PageContainer>
       <TitleContainer>
-        <Title name={'All my wishes...'} />
+        <Title name={<FormattedMessage id='myWishesTitle' />} />
         <ShareButton onClick={copylLink}>
           {linkCopied ? (
             <img
@@ -75,7 +76,10 @@ function MyWishes() {
           <Wish key={wish._id} {...wish} />
         ))}
       </WishesList>
-      <Button name={'add one'} onClick={handleOpenModal} />
+      <Button
+        name={<FormattedMessage id='myWishesButton' />}
+        onClick={handleOpenModal}
+      />
       <AddWishModal isOpen={modalOpen} onClose={handleCloseModal} />
     </PageContainer>
   )

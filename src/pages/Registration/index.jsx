@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { FormattedMessage } from 'react-intl'
 import validator from 'validator'
 import Button from '../../components/Button'
 import Title from '../../components/Title'
@@ -24,10 +25,10 @@ function Registration() {
     e.preventDefault()
 
     if (!validator.isEmail(email)) {
-      setEmailError('Incorrect email address')
+      setEmailError(<FormattedMessage id='incorrectEmailError' />)
     }
     if (password.length < 6) {
-      setPasswordError('The password should be at least 6 characters')
+      setPasswordError(<FormattedMessage id='shortPasswordError' />)
     }
     if (validator.isEmail(email) && password.length > 5) {
       register(email, password)
@@ -36,7 +37,7 @@ function Registration() {
         })
         .catch(e => {
           console.log(e)
-          setPasswordError('Something went wrong')
+          setPasswordError(<FormattedMessage id='defaultError' />)
         })
     }
   }
@@ -53,7 +54,7 @@ function Registration() {
 
   return (
     <PageContainer>
-      <Title name={'sign up'} />
+      <Title name={<FormattedMessage id='signupTitle' />} />
       <InputsContainer id='sign'>
         <Input
           label={'Email'}
@@ -62,16 +63,22 @@ function Registration() {
           onChange={onEmailChange}
         />
         <Input
-          label={'Password'}
+          label={<FormattedMessage id='signupPassword' />}
           error={passwordError}
           value={password}
           onChange={onPasswordChange}
         />
       </InputsContainer>
       <LinkContainer>
-        Already registered? <StyledLink to='/sign-in'>Sign In</StyledLink>
+        <FormattedMessage id='signupText' />{' '}
+        <StyledLink to='/sign-in'>
+          <FormattedMessage id='signinTitle' />
+        </StyledLink>
       </LinkContainer>
-      <Button name={'Submit'} onClick={onSubmit} />
+      <Button
+        name={<FormattedMessage id='signupButton' />}
+        onClick={onSubmit}
+      />
     </PageContainer>
   )
 }

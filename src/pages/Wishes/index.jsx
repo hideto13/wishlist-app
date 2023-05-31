@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
+import { FormattedMessage } from 'react-intl'
 import Title from '../../components/Title'
 import Wish from '../../components/Wish'
 import PageContainer from '../../components/PageContainer'
@@ -29,13 +30,13 @@ function Wishes() {
   if (!userId || incorrectUserId)
     return (
       <PageContainer>
-        <Title name={'No wishes yet'} />
+        <Title name={<FormattedMessage id='wishesErrorTitle' />} />
       </PageContainer>
     )
 
   return (
     <PageContainer>
-      <Title name={'Please, gift me...'} />
+      <Title name={<FormattedMessage id='wishesTitle' />} />
       <WishesList>
         {wishes.map(wish => (
           <Wish key={wish._id} {...wish} />

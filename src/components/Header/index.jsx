@@ -1,4 +1,5 @@
 import React, { useContext } from 'react'
+import { FormattedMessage } from 'react-intl'
 import { UserContext } from '../../contexts/UserContext'
 import {
   AppHeader,
@@ -23,7 +24,11 @@ function Header() {
           />
           <LogoText>WishList</LogoText>
         </LogoContainer>
-        {!token && <StyledLink to='/sign-in'>Sign In</StyledLink>}
+        {!token && (
+          <StyledLink to='/sign-in'>
+            <FormattedMessage id='headerButton' />
+          </StyledLink>
+        )}
       </AppContainer>
     </AppHeader>
   )
