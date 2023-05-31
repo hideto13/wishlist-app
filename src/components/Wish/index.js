@@ -1,3 +1,4 @@
+import { FormattedMessage } from 'react-intl'
 import {
   WishContainer,
   WishWrapper,
@@ -19,13 +20,17 @@ function Wish({ name, price, link, description, image }) {
         <WishTextContainer>
           <WishTextWrapper>
             <WishName>{name}</WishName>
-            <WishLinkWrapper>
-              <WishLink href={link} target='_blank' rel='noreferrer'>
-                {link}
-              </WishLink>
-            </WishLinkWrapper>
+            {link && (
+              <WishLinkWrapper>
+                <WishLink href={link} target='_blank' rel='noreferrer'>
+                  {link}
+                </WishLink>
+              </WishLinkWrapper>
+            )}
           </WishTextWrapper>
-          <WishPrice>~ {price} $</WishPrice>
+          <WishPrice>
+            {price ? '~' + price : '?'} <FormattedMessage id='currencySymbol' />
+          </WishPrice>
         </WishTextContainer>
         <WishDescription>{description}</WishDescription>
       </WishWrapper>

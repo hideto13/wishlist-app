@@ -2,6 +2,7 @@ import { LOCALES } from './locales'
 
 export const messages = {
   [LOCALES.ENGLISH]: {
+    currencySymbol: '$',
     // header
     headerButton: 'Sign In',
     // main page
@@ -41,6 +42,7 @@ export const messages = {
     incorrectEmailError: 'Incorrect email address',
   },
   [LOCALES.RUSSIAN]: {
+    currencySymbol: '₽',
     // header
     headerButton: 'Войти',
     // main page

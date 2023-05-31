@@ -1,6 +1,10 @@
 import styled from 'styled-components'
 
 export const WishContainer = styled.div`
+  background-image: url(${require(`../../images/gift.png`)});
+  background-position: center 40px;
+  background-repeat: no-repeat;
+  background-size: 100px;
   max-width: 282px;
   background-color: #4f273a;
   border-radius: 10px;
@@ -11,13 +15,14 @@ export const WishContainer = styled.div`
 `
 
 export const WishImg = styled.img`
-  width: 100%;
+  width: auto;
   height: 200px;
   object-fit: cover;
 `
 
 export const WishTextContainer = styled.div`
   width: 100%;
+  min-height: 60px;
 
   box-sizing: border-box;
   display: flex;
