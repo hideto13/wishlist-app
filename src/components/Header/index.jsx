@@ -7,6 +7,9 @@ import {
   LogoContainer,
   LogoText,
   StyledLink,
+  NavContainer,
+  NavText,
+  Navigation,
 } from './Header.styled'
 
 function Header() {
@@ -15,15 +18,32 @@ function Header() {
   return (
     <AppHeader>
       <AppContainer>
-        <LogoContainer to='/'>
-          <img
-            width='40px'
-            height='40px'
-            src={require('../../images/Logo.png')}
-            alt='logo'
-          />
-          <LogoText>WishList</LogoText>
-        </LogoContainer>
+        <NavContainer>
+          <LogoContainer to='/'>
+            <img
+              width='40px'
+              height='40px'
+              src={require('../../images/Logo.png')}
+              alt='logo'
+            />
+            <LogoText>WishList</LogoText>
+          </LogoContainer>
+          {token && (
+            <Navigation>
+              <LogoContainer to='/wishes'>
+                <NavText>
+                  <FormattedMessage id='headerNavWishes' />
+                </NavText>
+              </LogoContainer>
+              <LogoContainer to='/info'>
+                <NavText>
+                  <FormattedMessage id='headerNavAbout' />
+                </NavText>
+              </LogoContainer>
+            </Navigation>
+          )}
+        </NavContainer>
+
         {!token && (
           <StyledLink to='/sign-in'>
             <FormattedMessage id='headerButton' />

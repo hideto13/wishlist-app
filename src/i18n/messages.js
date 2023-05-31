@@ -5,6 +5,8 @@ export const messages = {
     currencySymbol: '$',
     // header
     headerButton: 'Sign In',
+    headerNavAbout: 'About',
+    headerNavWishes: 'My Wishes',
     // main page
     mainTitle: 'WELCOME TO THE WISHLIST APP!',
     mainText1:
@@ -47,6 +49,8 @@ export const messages = {
     currencySymbol: '₽',
     // header
     headerButton: 'Войти',
+    headerNavAbout: 'О проекте',
+    headerNavWishes: 'Мои желания',
     // main page
     mainTitle: 'Добро пожаловать в приложение WishList!',
     mainText1:

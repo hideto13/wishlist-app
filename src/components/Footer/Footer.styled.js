@@ -1,11 +1,6 @@
 import styled from 'styled-components'
 
 export const AppFooter = styled.div`
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  z-index: 5;
   background: rgba(16, 16, 44, 0.2);
   backdrop-filter: blur(10px);
   padding: 24px;
@@ -20,6 +15,13 @@ export const AppFooter = styled.div`
 export const AppContainer = styled.div`
   max-width: 1600px;
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+`
+
+export const FooterWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;

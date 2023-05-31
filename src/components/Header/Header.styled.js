@@ -35,7 +35,7 @@ export const LogoContainer = styled(Link)`
 
 export const LogoText = styled.p`
   margin: 0;
-  font-size: 24px;
+  font-size: 36px;
   font-style: italic;
   font-weight: 500;
   color: #4f273a;
@@ -44,4 +44,23 @@ export const LogoText = styled.p`
 export const StyledLink = styled(Link)`
   color: #4f273a;
   font-size: 20px;
+`
+
+export const NavContainer = styled.div`
+  display: flex;
+  gap: 100px;
+  align-items: center;
+`
+
+export const Navigation = styled.div`
+  display: flex;
+  gap: 24px;
+  align-items: center;
+`
+
+export const NavText = styled.p`
+  margin: 0;
+  font-size: 20px;
+  border-bottom: 1px solid rgb(79, 39, 58);
+  color: rgb(79, 39, 58);
 `
