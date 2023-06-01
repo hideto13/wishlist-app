@@ -135,3 +135,24 @@ export async function addWish(token, wish) {
       throw new Error(err)
     })
 }
+
+export async function deleteWish(id, token) {
+  return await fetch(`${API_HOST}/wishes/${id}`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+      Authorization: `Bearer ${token}`,
+    },
+  })
+    .then(response => {
+      if (response.ok) {
+        return response
+      }
+      throw new Error(`Error: ${response.status}`)
+    })
+    .then(response => response.json())
+    .catch(err => {
+      throw new Error(err)
+    })
+}

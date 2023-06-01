@@ -77,3 +77,18 @@ export const WishPrice = styled.p`
   font-weight: 700;
   margin: 0;
 `
+
+export const DeleteButton = styled.button`
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: all 150ms ease-in-out;
+
+  &:hover {
+    opacity: 0.7;
+  }
+`

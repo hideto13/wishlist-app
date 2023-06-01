@@ -73,7 +73,7 @@ function MyWishes() {
       </TitleContainer>
       <WishesList>
         {wishes.map(wish => (
-          <Wish key={wish._id} {...wish} />
+          <Wish key={wish._id} {...wish} isOwnerCard />
         ))}
       </WishesList>
       <Button

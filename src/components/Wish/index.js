@@ -1,4 +1,7 @@
+import { useContext } from 'react'
 import { FormattedMessage } from 'react-intl'
+import { deleteWish } from '../../api'
+import { UserContext } from '../../contexts/UserContext'
 import {
   WishContainer,
   WishWrapper,
@@ -10,11 +13,32 @@ import {
   WishLinkWrapper,
   WishPrice,
   WishDescription,
+  DeleteButton,
 } from './Wish.styled'
 
-function Wish({ name, price, link, description, image }) {
+function Wish({ name, price, link, description, image, isOwnerCard, _id }) {
+  const { token } = useContext(UserContext)
+
+  function handleDelete() {
+    deleteWish(_id, token)
+      .then(res => {
+        console.log(res)
+      })
+      .catch(e => console.log(e))
+  }
+
   return (
     <WishContainer>
+      {isOwnerCard && (
+        <DeleteButton onClick={handleDelete}>
+          <img
+            src={require('../../images/delete.svg').default}
+            width='20px'
+            height='20px'
+            alt='delete'
+          />
+        </DeleteButton>
+      )}
       <WishImg src={image} />
       <WishWrapper>
         <WishTextContainer>
