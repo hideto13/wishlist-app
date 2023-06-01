@@ -16,7 +16,7 @@ export default function AddWishModal({ isOpen, onClose }) {
     image: '',
     price: '',
   }
-  const { token } = useContext(UserContext)
+  const { token, getWishes } = useContext(UserContext)
   const [newWish, setNewWish] = useState(initialNewWish)
   const [error, setError] = useState('')
 
@@ -45,6 +45,7 @@ export default function AddWishModal({ isOpen, onClose }) {
         .then(res => {
           onClose()
           setNewWish(initialNewWish)
+          getWishes()
         })
         .catch(e => {
           console.log(e)

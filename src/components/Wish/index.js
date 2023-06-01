@@ -17,12 +17,12 @@ import {
 } from './Wish.styled'
 
 function Wish({ name, price, link, description, image, isOwnerCard, _id }) {
-  const { token } = useContext(UserContext)
+  const { token, getWishes } = useContext(UserContext)
 
   function handleDelete() {
     deleteWish(_id, token)
       .then(res => {
-        console.log(res)
+        getWishes()
       })
       .catch(e => console.log(e))
   }

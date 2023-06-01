@@ -61,7 +61,7 @@ export const messages = {
     // myWishes page
     myWishesTitle: 'Мои желания...',
     myWishesErrorTitle: 'Зарегистрируйтесь, чтобы создать свой лист желаний',
-    myWishesButton: 'Добавить ещё',
+    myWishesButton: 'Добавить',
     // wishes page
     wishesTitle: 'Пожалуйста, подари мне...',
     wishesErrorTitle: 'Список желаний пуст',

@@ -19,6 +19,8 @@ const AppContainer = styled.div`
   box-sizing: border-box;
   background: #ebd5dd;
   background: linear-gradient(#ebd5dd 85%, #e3a9be 99%);
+  display: flex;
+  flex-direction: column;
 `
 const browserLocale = navigator.language
 

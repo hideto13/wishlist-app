@@ -7,6 +7,7 @@ export const AppFooter = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: auto;
   @media (max-width: 768px) {
     padding: 16px;
   }
