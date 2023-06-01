@@ -73,6 +73,7 @@ function SignIn() {
             error={passwordError}
             value={password}
             onChange={onPasswordChange}
+            pass
           />
         </InputsContainer>
         <LinkContainer>

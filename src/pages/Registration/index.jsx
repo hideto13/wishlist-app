@@ -69,6 +69,7 @@ function Registration() {
             error={passwordError}
             value={password}
             onChange={onPasswordChange}
+            pass
           />
         </InputsContainer>
         <LinkContainer>

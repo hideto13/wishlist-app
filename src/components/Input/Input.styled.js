@@ -12,12 +12,18 @@ export const StyledInput = styled.input`
   box-sizing: border-box;
   outline: none;
   color: #4f273a;
+  background-color: transparent !important;
+
+  &::-internal-autofill-selected {
+    background-color: transparent;
+  }
 `
 
 export const InputContainer = styled.div`
   margin-bottom: 18px;
   width: 100%;
   max-width: 600px;
+  position: relative;
 `
 
 export const InputError = styled.span`
@@ -27,4 +33,13 @@ export const InputError = styled.span`
   min-height: 14px;
   display: block;
   margin: 5px 0;
+`
+
+export const PasswordIcon = styled.img`
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
 `
