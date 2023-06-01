@@ -1,6 +1,7 @@
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { FormattedMessage } from 'react-intl'
 import { deleteWish } from '../../api'
+import FullImageModal from '../FullImageModal'
 import { UserContext } from '../../contexts/UserContext'
 import {
   WishContainer,
@@ -18,6 +19,10 @@ import {
 
 function Wish({ name, price, link, description, image, isOwnerCard, _id }) {
   const { token, getWishes } = useContext(UserContext)
+  const [showFullImage, setShowFullImage] = useState(false)
+
+  const handleShowFullImage = () => setShowFullImage(true)
+  const handleHideFullImage = () => setShowFullImage(false)
 
   function handleDelete() {
     deleteWish(_id, token)
@@ -39,7 +44,7 @@ function Wish({ name, price, link, description, image, isOwnerCard, _id }) {
           />
         </DeleteButton>
       )}
-      <WishImg src={image} />
+      <WishImg src={image} onClick={handleShowFullImage} />
       <WishWrapper>
         <WishTextContainer>
           <WishTextWrapper>
@@ -58,6 +63,14 @@ function Wish({ name, price, link, description, image, isOwnerCard, _id }) {
         </WishTextContainer>
         <WishDescription>{description}</WishDescription>
       </WishWrapper>
+      {image && (
+        <FullImageModal
+          image={image}
+          isOpen={showFullImage}
+          onClose={handleHideFullImage}
+          name={name}
+        />
+      )}
     </WishContainer>
   )
 }

@@ -18,6 +18,7 @@ export const WishImg = styled.img`
   width: auto;
   height: 200px;
   object-fit: cover;
+  cursor: pointer;
 `
 
 export const WishTextContainer = styled.div`
