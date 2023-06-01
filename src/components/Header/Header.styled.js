@@ -56,6 +56,9 @@ export const Navigation = styled.div`
   display: flex;
   gap: 24px;
   align-items: center;
+  @media (max-width: 768px) {
+    display: none;
+  }
 `
 
 export const NavText = styled.p`
@@ -63,4 +66,13 @@ export const NavText = styled.p`
   font-size: 20px;
   border-bottom: 1px solid rgb(79, 39, 58);
   color: rgb(79, 39, 58);
+`
+
+export const MenuImg = styled.img`
+  width: 30px;
+  height: 30px;
+  display: none;
+  @media (max-width: 768px) {
+    display: block;
+  }
 `
