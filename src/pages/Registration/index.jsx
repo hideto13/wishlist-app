@@ -11,6 +11,7 @@ import {
   InputsContainer,
   StyledLink,
   LinkContainer,
+  FormContainer,
 } from './Registration.styled'
 
 function Registration() {
@@ -54,31 +55,30 @@ function Registration() {
 
   return (
     <PageContainer>
-      <Title name={<FormattedMessage id='signupTitle' />} />
-      <InputsContainer id='sign'>
-        <Input
-          label={'Email'}
-          error={emailError}
-          value={email}
-          onChange={onEmailChange}
-        />
-        <Input
-          label={<FormattedMessage id='signupPassword' />}
-          error={passwordError}
-          value={password}
-          onChange={onPasswordChange}
-        />
-      </InputsContainer>
-      <LinkContainer>
-        <FormattedMessage id='signupText' />{' '}
-        <StyledLink to='/sign-in'>
-          <FormattedMessage id='signinTitle' />
-        </StyledLink>
-      </LinkContainer>
-      <Button
-        name={<FormattedMessage id='signupButton' />}
-        onClick={onSubmit}
-      />
+      <FormContainer onSubmit={onSubmit}>
+        <Title name={<FormattedMessage id='signupTitle' />} />
+        <InputsContainer id='sign'>
+          <Input
+            label={'Email'}
+            error={emailError}
+            value={email}
+            onChange={onEmailChange}
+          />
+          <Input
+            label={<FormattedMessage id='signupPassword' />}
+            error={passwordError}
+            value={password}
+            onChange={onPasswordChange}
+          />
+        </InputsContainer>
+        <LinkContainer>
+          <FormattedMessage id='signupText' />{' '}
+          <StyledLink to='/sign-in'>
+            <FormattedMessage id='signinTitle' />
+          </StyledLink>
+        </LinkContainer>
+        <Button name={<FormattedMessage id='signupButton' />} />
+      </FormContainer>
     </PageContainer>
   )
 }

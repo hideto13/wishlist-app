@@ -21,3 +21,12 @@ export const LinkContainer = styled.p`
     margin: 0 0 70px;
   }
 `
+
+export const FormContainer = styled.form`
+  display: flex;
+
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+`

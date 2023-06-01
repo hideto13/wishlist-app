@@ -11,7 +11,7 @@ export const AppButton = styled.button`
   font-weight: 600;
   cursor: pointer;
   box-shadow: 0px 0px 5px 1px #a2a2d0;
-
+  min-width: 220px;
   -webkit-transition: all 150ms ease-in-out;
   transition: all 150ms ease-in-out;
 

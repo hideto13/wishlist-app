@@ -8,7 +8,12 @@ import PageContainer from '../../components/PageContainer'
 import Input from '../../components/Input'
 import { UserContext } from '../../contexts/UserContext'
 import { login } from '../../api'
-import { InputsContainer, LinkContainer, StyledLink } from './SignIn.styled'
+import {
+  InputsContainer,
+  LinkContainer,
+  StyledLink,
+  FormContainer,
+} from './SignIn.styled'
 
 function SignIn() {
   const navigate = useNavigate()
@@ -54,28 +59,30 @@ function SignIn() {
 
   return (
     <PageContainer>
-      <Title name={<FormattedMessage id='signinTitle' />} />
-      <InputsContainer>
-        <Input
-          label={'Email'}
-          error={emailError}
-          value={email}
-          onChange={onEmailChange}
-        />
-        <Input
-          label={<FormattedMessage id='signinPassword' />}
-          error={passwordError}
-          value={password}
-          onChange={onPasswordChange}
-        />
-      </InputsContainer>
-      <LinkContainer>
-        <FormattedMessage id='signinText' />{' '}
-        <StyledLink to='/sign-up'>
-          <FormattedMessage id='signupTitle' />
-        </StyledLink>
-      </LinkContainer>
-      <Button name={<FormattedMessage id='signinTitle' />} onClick={onSubmit} />
+      <FormContainer onSubmit={onSubmit}>
+        <Title name={<FormattedMessage id='signinTitle' />} />
+        <InputsContainer>
+          <Input
+            label={'Email'}
+            error={emailError}
+            value={email}
+            onChange={onEmailChange}
+          />
+          <Input
+            label={<FormattedMessage id='signinPassword' />}
+            error={passwordError}
+            value={password}
+            onChange={onPasswordChange}
+          />
+        </InputsContainer>
+        <LinkContainer>
+          <FormattedMessage id='signinText' />{' '}
+          <StyledLink to='/sign-up'>
+            <FormattedMessage id='signupTitle' />
+          </StyledLink>
+        </LinkContainer>
+        <Button name={<FormattedMessage id='signinTitle' />} />
+      </FormContainer>
     </PageContainer>
   )
 }

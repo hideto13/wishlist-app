@@ -32,7 +32,8 @@ export default function AddWishModal({ isOpen, onClose }) {
     setNewWish({ ...newWish, image: e.target.value })
   const handleChangeLink = e => setNewWish({ ...newWish, link: e.target.value })
 
-  function addNewWish() {
+  function addNewWish(e) {
+    e.preventDefault()
     if (!newWish.name) {
       setError(<FormattedMessage id='formNameError' />)
     } else if (
@@ -56,44 +57,46 @@ export default function AddWishModal({ isOpen, onClose }) {
 
   return (
     <ModalComponent isOpen={isOpen} onClose={onClose}>
-      <ModalTitle>
-        <FormattedMessage id='formTitle' />
-      </ModalTitle>
-      <ModalLabel>
-        <FormattedMessage id='formName' />*
-      </ModalLabel>
-      <ModalInput value={newWish.name} onChange={handleChangeName} />
-      <ModalLabel>
-        <FormattedMessage id='formPrice' />
-      </ModalLabel>
-      <ModalInput
-        value={newWish.price}
-        onChange={handleChangePrice}
-        type='number'
-      />
-      <ModalLabel>
-        <FormattedMessage id='formDescription' />
-      </ModalLabel>
-      <ModalInput
-        value={newWish.description}
-        onChange={handleChangeDescription}
-      />
-      <ModalLabel>
-        <FormattedMessage id='formImage' />
-      </ModalLabel>
-      <ModalInput value={newWish.image} onChange={handleChangeImage} />
-      <ModalLabel>
-        <FormattedMessage id='formLink' />
-      </ModalLabel>
-      <ModalInput value={newWish.link} onChange={handleChangeLink} />
-      <ButtonContainer>
-        <ErrorText>{error}</ErrorText>
-        <Button
-          name={<FormattedMessage id='formButton' />}
-          color='rgba(16, 16, 44, 0.2)'
-          onClick={addNewWish}
+      <form onSubmit={addNewWish}>
+        <ModalTitle>
+          <FormattedMessage id='formTitle' />
+        </ModalTitle>
+        <ModalLabel>
+          <FormattedMessage id='formName' />*
+        </ModalLabel>
+        <ModalInput value={newWish.name} onChange={handleChangeName} />
+        <ModalLabel>
+          <FormattedMessage id='formPrice' />
+        </ModalLabel>
+        <ModalInput
+          value={newWish.price}
+          onChange={handleChangePrice}
+          type='number'
         />
-      </ButtonContainer>
+        <ModalLabel>
+          <FormattedMessage id='formDescription' />
+        </ModalLabel>
+        <ModalInput
+          value={newWish.description}
+          onChange={handleChangeDescription}
+        />
+        <ModalLabel>
+          <FormattedMessage id='formImage' />
+        </ModalLabel>
+        <ModalInput value={newWish.image} onChange={handleChangeImage} />
+        <ModalLabel>
+          <FormattedMessage id='formLink' />
+        </ModalLabel>
+        <ModalInput value={newWish.link} onChange={handleChangeLink} />
+        <ButtonContainer>
+          <ErrorText>{error}</ErrorText>
+          <Button
+            name={<FormattedMessage id='formButton' />}
+            color='rgba(16, 16, 44, 0.2)'
+            type='submit'
+          />
+        </ButtonContainer>
+      </form>
     </ModalComponent>
   )
 }
