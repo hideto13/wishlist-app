@@ -12,4 +12,7 @@ export const WishesList = styled.div`
   min-height: 50px;
   margin: 40px 0 60px;
   justify-content: center;
+  @media (max-width: 767px) {
+    margin: 10px 0 20px;
+  }
 `

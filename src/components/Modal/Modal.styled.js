@@ -41,6 +41,8 @@ export const ModalContainer = styled.div`
   border-radius: 20px;
   box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
   box-sizing: border-box;
+  max-height: 90vh;
+  overflow-y: scroll;
   @media (max-width: 768px) {
     max-width: 336px;
     border-radius: 12px;
@@ -101,7 +103,6 @@ export const ModalInput = styled.input`
     line-height: 21px;
     letter-spacing: 0.5px;
     border-radius: 12px;
-    padding: 26px 16px 10px;
   }
 `
 
