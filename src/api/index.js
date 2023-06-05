@@ -156,3 +156,32 @@ export async function deleteWish(id, token) {
       throw new Error(err)
     })
 }
+
+export async function editWish(token, id, wish) {
+  const json = {}
+  if (wish.name) json.name = wish.name
+  if (wish.link) json.link = wish.link
+  if (wish.image) json.image = wish.image
+  if (wish.description) json.description = wish.description
+  if (wish.price) json.price = wish.price
+
+  return await fetch(`${API_HOST}/wishes/${id}`, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify(json),
+  })
+    .then(response => {
+      if (response.ok) {
+        return response
+      }
+      throw new Error(`Error: ${response.status}`)
+    })
+    .then(response => response.json())
+    .catch(err => {
+      throw new Error(err)
+    })
+}

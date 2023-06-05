@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const WishContainer = styled.div`
   background-image: url(${require(`../../images/gift.png`)});
-  background-position: center 40px;
+  background-position: center 50px;
   background-repeat: no-repeat;
   background-size: 100px;
   max-width: 282px;
@@ -83,6 +83,20 @@ export const DeleteButton = styled.button`
   position: absolute;
   top: 15px;
   right: 15px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: all 150ms ease-in-out;
+
+  &:hover {
+    opacity: 0.7;
+  }
+`
+export const EditButton = styled.button`
+  position: absolute;
+  top: 15px;
+  left: 15px;
   background-color: transparent;
   border: none;
   cursor: pointer;

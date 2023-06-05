@@ -23,6 +23,7 @@ export const messages = {
     wishesErrorTitle: 'No wishes yet',
     // add wish form
     formTitle: 'Add new wish',
+    editFormTitle: 'Edit wish',
     formName: 'Name',
     formPrice: 'Price',
     formDescription: 'Description',
@@ -44,6 +45,7 @@ export const messages = {
     defaultError: 'Something went wrong',
     shortPasswordError: 'The password should be at least 6 characters',
     incorrectEmailError: 'Incorrect email address',
+    emptyFormError: 'At least one field must be filled',
   },
   [LOCALES.RUSSIAN]: {
     currencySymbol: '₽',
@@ -67,6 +69,7 @@ export const messages = {
     wishesErrorTitle: 'Список желаний пуст',
     // add wish form
     formTitle: 'Добавить новое желание',
+    editFormTitle: 'Редактировать',
     formName: 'Название',
     formPrice: 'Цена',
     formDescription: 'Описание',
@@ -88,5 +91,6 @@ export const messages = {
     defaultError: 'Что-то пошло не так :(',
     shortPasswordError: 'Пароль должен быть не короче 6 символов',
     incorrectEmailError: 'Некорректный email',
+    emptyFormError: 'Должно быть заполнено хотя бы одно поле',
   },
 }

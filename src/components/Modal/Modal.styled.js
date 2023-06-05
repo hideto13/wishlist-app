@@ -43,6 +43,11 @@ export const ModalContainer = styled.div`
   box-sizing: border-box;
   max-height: 90vh;
   overflow-y: scroll;
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
+  &::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+  }
   @media (max-width: 768px) {
     max-width: 336px;
     border-radius: 12px;
@@ -113,4 +118,5 @@ export const ModalLabel = styled.label`
   margin-bottom: 4px;
   margin-left: 16px;
   font-weight: 700;
+  line-height: 21px;
 `
