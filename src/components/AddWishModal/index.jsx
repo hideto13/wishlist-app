@@ -1,5 +1,5 @@
 import { useState, useContext } from 'react'
-import { FormattedMessage } from 'react-intl'
+import { FormattedMessage, useIntl } from 'react-intl'
 import validator from 'validator'
 import ModalComponent from '../Modal'
 import Button from '../Button'
@@ -9,6 +9,7 @@ import { ModalInput, ModalTitle, ModalLabel } from '../Modal/Modal.styled'
 import { ButtonContainer, ErrorText } from './AddWishModal.styled'
 
 export default function AddWishModal({ isOpen, onClose }) {
+  const intl = useIntl()
   const initialNewWish = {
     name: '',
     description: '',
@@ -72,6 +73,7 @@ export default function AddWishModal({ isOpen, onClose }) {
           value={newWish.price}
           onChange={handleChangePrice}
           type='number'
+          placeholder={intl.formatMessage({ id: 'formPricePlaceholder' })}
         />
         <ModalLabel>
           <FormattedMessage id='formDescription' />

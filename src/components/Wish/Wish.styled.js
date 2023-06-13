@@ -5,7 +5,7 @@ export const WishContainer = styled.div`
   background-position: center 50px;
   background-repeat: no-repeat;
   background-size: 100px;
-  max-width: 282px;
+  max-width: 300px;
   background-color: #4f273a;
   border-radius: 10px;
   overflow: hidden;
@@ -21,22 +21,6 @@ export const WishImg = styled.img`
   cursor: pointer;
 `
 
-export const WishTextContainer = styled.div`
-  width: 100%;
-  min-height: 60px;
-
-  box-sizing: border-box;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`
-
-export const WishTextWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-`
-
 export const WishWrapper = styled.div`
   padding: 16px;
 `
@@ -49,6 +33,7 @@ export const WishLink = styled.a`
 export const WishDescription = styled.p`
   color: rgb(190, 190, 231);
   font-size: 14px;
+  line-height: normal;
 `
 
 export const WishName = styled.h3`
@@ -56,7 +41,7 @@ export const WishName = styled.h3`
   margin: 0;
   font-size: 20px;
   line-height: 24px;
-  max-width: 170px;
+  max-width: 100%;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -66,7 +51,7 @@ export const WishLinkWrapper = styled.p`
   margin: 8px 0;
   font-size: 16px;
   line-height: 18px;
-  max-width: 150px;
+  max-width: 100%;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -77,6 +62,10 @@ export const WishPrice = styled.p`
   line-height: 28px;
   font-weight: 700;
   margin: 0;
+  text-align: end;
+  position: relative;
+  top: -5px;
+  color: rgb(227, 169, 190);
 `
 
 export const DeleteButton = styled.button`

@@ -12,5 +12,6 @@ export const AppTitle = styled.h1`
     margin: 24px 0;
     font-size: 30px;
     line-height: 46px;
+    max-width: 500px;
   }
 `

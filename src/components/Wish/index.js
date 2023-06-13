@@ -8,8 +8,6 @@ import {
   WishContainer,
   WishWrapper,
   WishImg,
-  WishTextContainer,
-  WishTextWrapper,
   WishLink,
   WishName,
   WishLinkWrapper,
@@ -62,22 +60,18 @@ function Wish({ name, price, link, description, image, isOwnerCard, _id }) {
       )}
       <WishImg src={image} onClick={handleShowFullImage} />
       <WishWrapper>
-        <WishTextContainer>
-          <WishTextWrapper>
-            <WishName>{name}</WishName>
-            {link && (
-              <WishLinkWrapper>
-                <WishLink href={link} target='_blank' rel='noreferrer'>
-                  {link}
-                </WishLink>
-              </WishLinkWrapper>
-            )}
-          </WishTextWrapper>
-          <WishPrice>
-            {price ? '~' + price : '?'} <FormattedMessage id='currencySymbol' />
-          </WishPrice>
-        </WishTextContainer>
+        <WishPrice>
+          {price ? '~' + price : '?'} <FormattedMessage id='currencySymbol' />
+        </WishPrice>
+        <WishName>{name}</WishName>
         <WishDescription>{description}</WishDescription>
+        {link && (
+          <WishLinkWrapper>
+            <WishLink href={link} target='_blank' rel='noreferrer'>
+              {link}
+            </WishLink>
+          </WishLinkWrapper>
+        )}
       </WishWrapper>
       {image && (
         <FullImageModal

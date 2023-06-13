@@ -6,7 +6,7 @@ export const WishesList = styled.div`
   margin: 0 auto;
   padding: 0;
   list-style: none;
-  grid-template-columns: repeat(auto-fit, minmax(min-content, 282px));
+  grid-template-columns: repeat(auto-fit, minmax(min-content, 300px));
   column-gap: 17px;
   row-gap: 20px;
   min-height: 50px;
