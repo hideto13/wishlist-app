@@ -4,6 +4,7 @@ export const messages = {
   [LOCALES.ENGLISH]: {
     currencySymbol: '$',
     localeTitle: 'Select Language',
+    shareModalTitle: 'Share',
     // header
     headerButton: 'Sign In',
     headerNavAbout: 'About',
@@ -52,6 +53,7 @@ export const messages = {
   [LOCALES.RUSSIAN]: {
     currencySymbol: '₽',
     localeTitle: 'Выберите язык',
+    shareModalTitle: 'Поделится',
     // header
     headerButton: 'Войти',
     headerNavAbout: 'О проекте',

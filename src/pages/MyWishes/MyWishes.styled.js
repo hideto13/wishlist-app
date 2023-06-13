@@ -44,12 +44,3 @@ export const TitleContainer = styled.div`
   gap: 16px;
   align-items: center;
 `
-
-export const ShareInput = styled.input`
-  opacity: 0;
-  position: absolute;
-  top: -5000px;
-  left: -5000px;
-  width: 1px;
-  height: 1px;
-`
