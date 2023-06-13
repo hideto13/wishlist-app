@@ -13,6 +13,7 @@ export const StyledInput = styled.input`
   outline: none;
   color: #4f273a;
   background-color: transparent !important;
+  font-family: 'Josefin Sans', sans-serif;
 
   &::-internal-autofill-selected {
     background-color: transparent;

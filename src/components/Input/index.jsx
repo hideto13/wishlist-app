@@ -23,12 +23,12 @@ function Input({ label, error, value, onChange, pass, type }) {
         showPass ? (
           <PasswordIcon
             onClick={() => setShowPass(!showPass)}
-            src={require('../../images/show.svg').default}
+            src={require('../../images/notshow.svg').default}
           />
         ) : (
           <PasswordIcon
             onClick={() => setShowPass(!showPass)}
-            src={require('../../images/notshow.svg').default}
+            src={require('../../images/show.svg').default}
           />
         )
       ) : (

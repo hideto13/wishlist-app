@@ -6,7 +6,7 @@ export const AppTitle = styled.h1`
   line-height: 70px;
   margin: 40px 0;
   text-align: center;
-  max-width: 800px;
+  max-width: 700px;
 
   @media (max-width: 767px) {
     margin: 24px 0;

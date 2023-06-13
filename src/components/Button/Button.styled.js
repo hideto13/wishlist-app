@@ -14,6 +14,7 @@ export const AppButton = styled.button`
   min-width: 220px;
   -webkit-transition: all 150ms ease-in-out;
   transition: all 150ms ease-in-out;
+  font-family: 'Josefin Sans', sans-serif;
 
   &:hover {
     box-shadow: 0px 0px 13px 3px #a2a2d0;

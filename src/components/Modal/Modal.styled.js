@@ -85,11 +85,13 @@ export const ModalInput = styled.input`
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  font-family: 'Josefin Sans', sans-serif;
 
   &::placeholder {
     color: #a3a4a9;
     opacity: 0.4;
     line-height: 36px;
+    font-family: 'Josefin Sans', sans-serif;
   }
 
   &:focus {
