@@ -1,7 +1,14 @@
-import React, { useContext, useState } from 'react'
+import React, {
+  useContext,
+  useState,
+  useRef,
+  useCallback,
+  useEffect,
+} from 'react'
 import { FormattedMessage } from 'react-intl'
 import { Drawer } from '../Drawer'
 import { UserContext } from '../../contexts/UserContext'
+import { LOCALES, LOCALES_NAME } from '../../i18n/locales'
 import {
   AppHeader,
   AppContainer,
@@ -12,14 +19,32 @@ import {
   NavText,
   Navigation,
   MenuImg,
+  SettingsImg,
+  SettingsList,
+  SettingsListItem,
+  SettingsListContainer,
+  SettingsTitle,
+  InfoContainer,
 } from './Header.styled'
 
-function Header() {
+function Header({ setCurrentLocale }) {
   const { token } = useContext(UserContext)
   const [openDraw, setOpenDraw] = useState(false)
+  const [showSettings, setShowSettings] = useState(false)
+
+  const settings = useRef(null)
 
   const handleOpenDraw = () => setOpenDraw(true)
   const handleCloseDraw = () => setOpenDraw(false)
+
+  const handleSettings = () => setShowSettings(!showSettings)
+  const closeSettings = () => setShowSettings(false)
+
+  function setLocale(locale) {
+    localStorage.setItem('locale', locale)
+    setCurrentLocale(locale)
+    closeSettings()
+  }
 
   const Nav = () => {
     return (
@@ -37,6 +62,24 @@ function Header() {
       </>
     )
   }
+
+  const handleCloseSettings = useCallback(event => {
+    if (
+      settings.current &&
+      !Array.from(settings.current.getElementsByTagName('*')).includes(
+        event.target
+      )
+    ) {
+      closeSettings()
+    }
+  }, [])
+
+  useEffect(() => {
+    window.addEventListener('click', handleCloseSettings)
+    return () => {
+      window.removeEventListener('click', handleCloseSettings)
+    }
+  }, [handleCloseSettings])
 
   return (
     <>
@@ -58,17 +101,40 @@ function Header() {
               </Navigation>
             )}
           </NavContainer>
-          {!token && (
-            <StyledLink to='/sign-in'>
-              <FormattedMessage id='headerButton' />
-            </StyledLink>
-          )}
-          {token && (
-            <MenuImg
-              src={require('../../images/menu.svg').default}
-              onClick={handleOpenDraw}
-            />
-          )}
+          <InfoContainer>
+            {!token && (
+              <StyledLink to='/sign-in'>
+                <FormattedMessage id='headerButton' />
+              </StyledLink>
+            )}
+            <div ref={settings}>
+              <SettingsImg
+                src={require('../../images/settings.svg').default}
+                onClick={handleSettings}
+              />
+              <SettingsListContainer show={showSettings}>
+                <SettingsTitle>
+                  <FormattedMessage id='localeTitle' />
+                </SettingsTitle>
+                <SettingsList>
+                  {Object.keys(LOCALES).map((lang, idx) => (
+                    <SettingsListItem
+                      key={idx}
+                      onClick={() => setLocale(LOCALES[lang])}
+                    >
+                      {LOCALES_NAME[lang]}
+                    </SettingsListItem>
+                  ))}
+                </SettingsList>
+              </SettingsListContainer>
+            </div>
+            {token && (
+              <MenuImg
+                src={require('../../images/menu.svg').default}
+                onClick={handleOpenDraw}
+              />
+            )}
+          </InfoContainer>
         </AppContainer>
       </AppHeader>
       <Drawer isOpen={openDraw} onClose={handleCloseDraw}>

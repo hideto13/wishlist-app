@@ -3,6 +3,7 @@ import { LOCALES } from './locales'
 export const messages = {
   [LOCALES.ENGLISH]: {
     currencySymbol: '$',
+    localeTitle: 'Select Language',
     // header
     headerButton: 'Sign In',
     headerNavAbout: 'About',
@@ -49,6 +50,7 @@ export const messages = {
   },
   [LOCALES.RUSSIAN]: {
     currencySymbol: '₽',
+    localeTitle: 'Выберите язык',
     // header
     headerButton: 'Войти',
     headerNavAbout: 'О проекте',

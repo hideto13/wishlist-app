@@ -25,7 +25,11 @@ const AppContainer = styled.div`
 const browserLocale = navigator.language
 
 function App() {
-  const initialLocale = Object.values(LOCALES).includes(browserLocale)
+  const storageLocale = localStorage.getItem('locale')
+
+  const initialLocale = storageLocale
+    ? storageLocale
+    : Object.values(LOCALES).includes(browserLocale)
     ? browserLocale
     : LOCALES.ENGLISH
   const [currentLocale, setCurrentLocale] = useState(initialLocale)
@@ -38,7 +42,7 @@ function App() {
     >
       <UserProvider>
         <AppContainer>
-          <Header />
+          <Header setCurrentLocale={setCurrentLocale} />
           <Routes>
             <Route
               exact
