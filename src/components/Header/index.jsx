@@ -111,6 +111,7 @@ function Header({ setCurrentLocale }) {
               <SettingsImg
                 src={require('../../images/settings.svg').default}
                 onClick={handleSettings}
+                alt='settings'
               />
               <SettingsListContainer show={showSettings}>
                 <SettingsTitle>

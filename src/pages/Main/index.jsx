@@ -20,7 +20,7 @@ function Main() {
             <FormattedMessage id='mainText2' />
           </span>
         </MainText>
-        <MainImg src={require('../../images/wish.jpg')} />
+        <MainImg src={require('../../images/wish.jpg')} alt='magic-wand' />
       </MainTextContainer>
       <Button
         name={<FormattedMessage id='mainButton' />}
