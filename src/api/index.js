@@ -108,21 +108,28 @@ export async function getUserWishesById(userId) {
     })
 }
 
-export async function addWish(token, wish) {
+export async function addWish(token, wish, selectedImage) {
   const json = { name: wish.name }
   if (wish.link) json.link = wish.link
   if (wish.image) json.image = wish.image
   if (wish.description) json.description = wish.description
   if (wish.price) json.price = wish.price
+  if (selectedImage) json.imageBN = selectedImage
+
+  const formData = new FormData()
+  formData.append('imageBN', selectedImage)
+  formData.append('name', wish.name)
 
   return await fetch(`${API_HOST}/wishes`, {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/json',
-      Accept: 'application/json',
+      // 'Content-Type': 'application/json',
+      // Accept: 'application/json',
       Authorization: `Bearer ${token}`,
     },
-    body: JSON.stringify(json),
+    body: 
+    formData
+    // JSON.stringify(json),
   })
     .then(response => {
       if (response.ok) {

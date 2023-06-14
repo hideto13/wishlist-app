@@ -6,7 +6,12 @@ import Button from '../Button'
 import { addWish } from '../../api'
 import { UserContext } from '../../contexts/UserContext'
 import { ModalInput, ModalTitle, ModalLabel } from '../Modal/Modal.styled'
-import { ButtonContainer, ErrorText } from './AddWishModal.styled'
+import {
+  ButtonContainer,
+  ErrorText,
+  ImageToogle,
+  UploadInput,
+} from './AddWishModal.styled'
 
 export default function AddWishModal({ isOpen, onClose }) {
   const intl = useIntl()
@@ -20,6 +25,8 @@ export default function AddWishModal({ isOpen, onClose }) {
   const { token, getWishes } = useContext(UserContext)
   const [newWish, setNewWish] = useState(initialNewWish)
   const [error, setError] = useState('')
+  const [selectedImage, setSelectedImage] = useState(null)
+  const [uploadImage, setUploadImage] = useState(false)
 
   const handleChangeName = e => {
     setNewWish({ ...newWish, name: e.target.value })
@@ -43,7 +50,7 @@ export default function AddWishModal({ isOpen, onClose }) {
     ) {
       setError(<FormattedMessage id='formLinkError' />)
     } else {
-      addWish(token, newWish)
+      addWish(token, newWish, selectedImage)
         .then(res => {
           onClose()
           setNewWish(initialNewWish)
@@ -55,7 +62,7 @@ export default function AddWishModal({ isOpen, onClose }) {
         })
     }
   }
-
+  console.log(selectedImage)
   return (
     <ModalComponent isOpen={isOpen} onClose={onClose}>
       <form onSubmit={addNewWish}>
@@ -82,10 +89,41 @@ export default function AddWishModal({ isOpen, onClose }) {
           value={newWish.description}
           onChange={handleChangeDescription}
         />
-        <ModalLabel>
-          <FormattedMessage id='formImage' />
-        </ModalLabel>
-        <ModalInput value={newWish.image} onChange={handleChangeImage} />
+        <ImageToogle>
+          <ModalLabel onClick={() => setUploadImage(false)}>
+            <FormattedMessage id='formImage' />
+          </ModalLabel>
+          <span>/</span>
+          <ModalLabel onClick={() => setUploadImage(true)}>
+            <FormattedMessage id='formImage' />
+          </ModalLabel>
+        </ImageToogle>
+        {uploadImage ? (
+          <>
+            {selectedImage ? (
+              <div>
+                <img
+                  alt='not found'
+                  width={'60px'}
+                  src={URL.createObjectURL(selectedImage)}
+                />
+                <br />
+                <button onClick={() => setSelectedImage(null)}>Remove</button>
+              </div>
+            ) : (
+              <UploadInput
+                type='file'
+                name='myImage'
+                onChange={event => {
+                  console.log(event.target.files[0])
+                  setSelectedImage(event.target.files[0])
+                }}
+              />
+            )}
+          </>
+        ) : (
+          <ModalInput value={newWish.image} onChange={handleChangeImage} />
+        )}
         <ModalLabel>
           <FormattedMessage id='formLink' />
         </ModalLabel>
