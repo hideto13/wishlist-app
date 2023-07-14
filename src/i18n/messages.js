@@ -40,12 +40,15 @@ export const messages = {
     signupPassword: 'Password',
     signupText: 'Already registered?',
     signupButton: 'Submit',
+    signupGoogle: 'Sign Up with Google 🚀 ',
     //signin
     signinTitle: 'Sign In',
     signinPassword: 'Password',
     signinText: 'Missing account?',
+    signinGoogle: 'Sign In with Google 🚀 ',
     // errors
     defaultError: 'Something went wrong',
+    existError: 'User already exist',
     shortPasswordError: 'The password should be at least 6 characters',
     incorrectEmailError: 'Incorrect email address',
     emptyFormError: 'At least one field must be filled',
@@ -89,12 +92,15 @@ export const messages = {
     signupPassword: 'Пароль',
     signupText: 'Уже зарегестрированы?',
     signupButton: 'Отправить',
+    signupGoogle: 'Зарегистрироваться с Google 🚀 ',
     //signin
     signinTitle: 'Войти',
     signinPassword: 'Пароль',
     signinText: 'Забыли пароль?',
+    signinGoogle: 'Войти с Google 🚀 ',
     // errors
     defaultError: 'Что-то пошло не так :(',
+    existError: 'Пользователь уже зарегистрирован',
     shortPasswordError: 'Пароль должен быть не короче 6 символов',
     incorrectEmailError: 'Некорректный email',
     emptyFormError: 'Должно быть заполнено хотя бы одно поле',
