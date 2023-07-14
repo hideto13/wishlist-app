@@ -15,10 +15,10 @@ export const StyledLink = styled(Link)`
 `
 
 export const LinkContainer = styled.p`
-  margin: 0 0 90px;
+  margin: 0 0 20px;
 
   @media (max-width: 767px) {
-    margin: 0 0 70px;
+    margin: 0 0 20px;
   }
 `
 
@@ -29,4 +29,12 @@ export const FormContainer = styled.form`
   align-items: center;
   width: 100%;
   max-width: 600px;
+`
+
+export const ButtonContainer = styled.div`
+  margin: 20px 0 0;
+
+  @media (max-width: 767px) {
+    margin: 10px 0 0;
+  }
 `

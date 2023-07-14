@@ -15,11 +15,11 @@ export async function register(email, password) {
       if (response.ok) {
         return response
       }
-      throw new Error(`Error: ${response.status}`)
+      throw response
     })
     .then(response => response.json())
     .catch(err => {
-      throw new Error(err)
+      throw err
     })
 }
 
@@ -174,6 +174,30 @@ export async function editWish(token, id, wish) {
     },
     body: JSON.stringify(json),
   })
+    .then(response => {
+      if (response.ok) {
+        return response
+      }
+      throw new Error(`Error: ${response.status}`)
+    })
+    .then(response => response.json())
+    .catch(err => {
+      throw new Error(err)
+    })
+}
+
+export async function getGoogleInfo(googleToken) {
+  return await fetch(
+    `https://www.googleapis.com/oauth2/v1/userinfo?access_token=${googleToken}`,
+    {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+        Authorization: `Bearer ${googleToken}`,
+      },
+    }
+  )
     .then(response => {
       if (response.ok) {
         return response
