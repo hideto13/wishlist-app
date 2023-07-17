@@ -2,12 +2,12 @@ import { useState, useContext } from 'react'
 import { FormattedMessage } from 'react-intl'
 import Button from '../../components/Button'
 import Title from '../../components/Title'
-import Wish from '../../components/Wish'
 import PageContainer from '../../components/PageContainer'
 import AddWishModal from '../../components/AddWishModal'
 import ShareModal from '../../components/ShareModal'
+import WishesListComponent from '../../components/WishesList'
 import { UserContext } from '../../contexts/UserContext'
-import { WishesList, ShareButton, TitleContainer } from './MyWishes.styled'
+import { ShareButton, TitleContainer } from './MyWishes.styled'
 
 function MyWishes() {
   const { token, userId, wishes } = useContext(UserContext)
@@ -40,11 +40,7 @@ function MyWishes() {
           />
         </ShareButton>
       </TitleContainer>
-      <WishesList>
-        {wishes.map(wish => (
-          <Wish key={wish._id} {...wish} isOwnerCard />
-        ))}
-      </WishesList>
+      <WishesListComponent wishes={wishes} isOwnerCard />
       <Button
         name={<FormattedMessage id='myWishesButton' />}
         onClick={handleOpenModal}

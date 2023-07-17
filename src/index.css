@@ -6,3 +6,23 @@ body {
   -moz-osx-font-smoothing: grayscale;
   color: #4f273a;
 }
+
+/* pagination */
+
+.page-item {
+  color: rgb(79, 39, 58);
+  cursor: pointer;
+}
+
+.page-item-active {
+  color: rgb(190, 190, 231);
+  cursor: initial;
+}
+
+.pagination {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  padding: 0;
+  margin-bottom: 40px;
+}
