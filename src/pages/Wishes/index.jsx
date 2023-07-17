@@ -2,10 +2,9 @@ import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { FormattedMessage } from 'react-intl'
 import Title from '../../components/Title'
-import Wish from '../../components/Wish'
+import WishesListComponent from '../../components/WishesList'
 import PageContainer from '../../components/PageContainer'
 import { getUserWishesById } from '../../api'
-import { WishesList } from './Wishes.styled'
 
 function Wishes() {
   const { userId } = useParams()
@@ -37,11 +36,7 @@ function Wishes() {
   return (
     <PageContainer>
       <Title name={<FormattedMessage id='wishesTitle' />} />
-      <WishesList>
-        {wishes.map(wish => (
-          <Wish key={wish._id} {...wish} />
-        ))}
-      </WishesList>
+      <WishesListComponent wishes={wishes} />
     </PageContainer>
   )
 }
